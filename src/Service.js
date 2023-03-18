@@ -65,7 +65,7 @@ export default {
   postUrl: async (originalUrl, uniqueName) => {
     console.log('1',originalUrl)
     console.log('2',uniqueName)
-    const res = await axios.post("https://tinyurl.com/m6352/",{ "originalUrl":originalUrl , "uniqueName":uniqueName });
+    const res = await axios.post("https://tinyurl.com/m6352/links",{ "originalUrl":originalUrl , "uniqueName":uniqueName });
     return res.data;
   }
 };
