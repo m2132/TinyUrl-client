@@ -17,13 +17,14 @@ import Container from "@mui/material/Container";
 export default function Register() {
   const [email, setEmail] = useState("email@gmail.com");
   const [password, setPassword] = useState("123456");
+  const [userName,setUserName] = useState("michal");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await Service.register(email, password);
-    navigate("/private", { replace: true });
+    await Service.register(userName,email, password);
+    //navigate("/private", { replace: true });
   };
 
   return (
@@ -47,11 +48,21 @@ export default function Register() {
             margin="normal"
             required
             fullWidth
+            id="userName"
+            label="user name"
+            name="userName"
+            autoComplete="userName"
+            autoFocus
+            onChange={(event) => setUserName(event.target.value)}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
             id="email"
-            label="כתובת מייל"
+            label="email"
             name="email"
             autoComplete="email"
-            autoFocus
             onChange={(event) => setEmail(event.target.value)}
           />
           <TextField
@@ -59,7 +70,7 @@ export default function Register() {
             required
             fullWidth
             name="password"
-            label="סיסמה"
+            label="password"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -67,7 +78,7 @@ export default function Register() {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="זכור אותי"
+            label="remember me"
           />
           <Button
             type="submit"
@@ -80,7 +91,7 @@ export default function Register() {
           <Grid container>
             <Grid item>
               <Link href="/login" variant="body2">
-                {"יש לך כבר חשבון? להתחברות"}
+                {"Already have an account? to connect"}
               </Link>
             </Grid>
           </Grid>

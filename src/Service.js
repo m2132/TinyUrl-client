@@ -42,13 +42,13 @@ export default {
     localStorage.setItem("access_token", "");
   },
 
-  register: async (email, password) => {
-    const res = await axios.post("/register", { email, password });
+  register: async (name,email, password) => {
+    const res = await axios.post("http://localhost:6001/login", { name, email, password });
     saveAccessToken(res.data);
   },
 
-  login: async (name,email, password) => {
-    const res = await axios.post("https://tinyurl.com/m6352/login", {name, email, password });
+  login: async (name, password) => {
+    const res = await axios.post("http://localhost:6001", {name, password });
     // const res = await axios.post("https://tinyurl-b8yl.onrender.com/login", {name, email, password });
     saveAccessToken(res.data);
   },
@@ -65,7 +65,7 @@ export default {
   postUrl: async (originalUrl, uniqueName) => {
     console.log('1',originalUrl)
     console.log('2',uniqueName)
-    const res = await axios.post("https://tinyurl.com/m6352/links",{ "originalUrl":originalUrl , "uniqueName":uniqueName });
+    const res = await axios.post("http://localhost:6001",{ "originalUrl":originalUrl , "uniqueName":uniqueName });
     return res.data;
   }
 };

@@ -11,14 +11,14 @@ const AppRoutes = [
         index: true,
         element: <Home />
     },
-    // {
-    //     path: '/public',
-    //     element: <Public />
-    // },
-    // {
-    //     path: '/private',
-    //     element: <Private />
-    // },
+    {
+        path: '/public',
+        element: <Public />
+    },
+    {
+        path: '/private',
+        element: <Private />
+    },
     {
         path: '/login',
         element: <Login />

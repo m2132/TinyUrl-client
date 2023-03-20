@@ -21,7 +21,7 @@ import { useLocation } from 'react-router'
 const pages = [
   // { title: "ציבורי", route: "/public" },
   // { title: "פרטי", route: "/private" },
-  { title: "הוסף URL", route: "/link" },
+  { title: "ADD URL", route: "/link" },
 ];
 
 function AppHeader() {
@@ -150,7 +150,7 @@ function AppHeader() {
             <div>
             <Button color="inherit" onClick={()=>{
                 navigate('/login')
-              }}>התחברות</Button>
+              }}>LogIn</Button>
             </div>
           )}
         </Toolbar>

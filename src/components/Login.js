@@ -15,7 +15,7 @@ import { useState } from "react";
 import Container from "@mui/material/Container";
 
 export default function Login() {
-  const [ email, setEmail] = useState("email@gmail.com");
+  
   const [password, setPassword] = useState("123456");
   const [userName,setUserName] = useState("michal");
 
@@ -23,8 +23,8 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await Service.login(userName,email, password);
-    navigate("/link", { replace: true });
+    await Service.login(userName, password);
+    //navigate("/private", { replace: true });
   };
 
   return (
@@ -49,7 +49,7 @@ export default function Login() {
             required
             fullWidth
             id="email"
-            label="שם משתמש"
+            label="user name"
             name="userName"
             autoComplete="userName"
             autoFocus
@@ -59,19 +59,8 @@ export default function Login() {
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="כתובת מייל"
-            name="email"
-            autoComplete="email"
-            // helperText={"שם משתמש ברירת מחדל: email@gmail.com"}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
             name="password"
-            label="סיסמה"
+            label="password"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -88,12 +77,12 @@ export default function Login() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            התחברות
+            login
           </Button>
           <Grid container>
             <Grid item>
               <Link href="/register" variant="body2">
-                {"אין לך עדין חשבון? להרשמה"}
+              {"Don't have an account yet? To register"}
               </Link>
             </Grid>
           </Grid>
