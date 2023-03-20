@@ -41,7 +41,7 @@ export default function Login() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          התחברות
+          LogIn
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
         <TextField
@@ -49,7 +49,7 @@ export default function Login() {
             required
             fullWidth
             id="email"
-            label="user name"
+            label="User name"
             name="userName"
             autoComplete="userName"
             autoFocus
@@ -60,7 +60,7 @@ export default function Login() {
             required
             fullWidth
             name="password"
-            label="password"
+            label="Password"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -69,7 +69,7 @@ export default function Login() {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="זכור אותי"
+            label="Remember me"
           />
           <Button
             type="submit"

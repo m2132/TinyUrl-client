@@ -41,7 +41,7 @@ export default function Register() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          הרשמה
+          Register
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -49,7 +49,7 @@ export default function Register() {
             required
             fullWidth
             id="userName"
-            label="user name"
+            label="User name"
             name="userName"
             autoComplete="userName"
             autoFocus
@@ -60,7 +60,7 @@ export default function Register() {
             required
             fullWidth
             id="email"
-            label="email"
+            label="Email"
             name="email"
             autoComplete="email"
             onChange={(event) => setEmail(event.target.value)}
@@ -70,7 +70,7 @@ export default function Register() {
             required
             fullWidth
             name="password"
-            label="password"
+            label="Password"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -78,7 +78,7 @@ export default function Register() {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="remember me"
+            label="Remember me"
           />
           <Button
             type="submit"
@@ -86,7 +86,7 @@ export default function Register() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            הרשמה
+            Register
           </Button>
           <Grid container>
             <Grid item>
