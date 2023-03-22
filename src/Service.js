@@ -46,13 +46,15 @@ export default {
 
   register: async (name,email, password) => {
     console.log("==========",name)
-    const res = await axios.post("http://localhost:6001/login", {name, email, password });//addUser+register(create jwt)
+    const res = await axios.post("https://tinyurl.com/m6352/login", {name, email, password });//addUser+register(create jwt)
+    // const res = await axios.post("http://localhost:6001/login", {name, email, password });//addUser+register(create jwt)
     
     saveAccessToken(res.data);
   },
 
   login: async (name, password) => {
-    const res = await axios.post("http://localhost:6001", {name, password });//check jwt 
+    const res = await axios.post("https://tinyurl.com/m6352", {name, password });//check jwt 
+    // const res = await axios.post("http://localhost:6001", {name, password });//check jwt 
     console.log(res.data)
     saveAccessToken(res.data);
   },
@@ -70,7 +72,8 @@ export default {
     console.log('1',originalUrl)
     console.log('2',uniqueName)
 
-    const res = await axios.post("http://localhost:6001",{ "originalUrl":originalUrl , "uniqueName":uniqueName });
+    const res = await axios.post("https://tinyurl.com/m6352",{ "originalUrl":originalUrl , "uniqueName":uniqueName });
+    // const res = await axios.post("http://localhost:6001",{ "originalUrl":originalUrl , "uniqueName":uniqueName });
     return res.data;
   }
 };
