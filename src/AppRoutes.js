@@ -1,9 +1,9 @@
 import React from 'react';
-import Public from "./components/Public";
-import Private from "./components/Private";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import TinyUrl from "./components/TinyUrl";
+import TinyUrlTarget from "./components/TinyUrlTarget";
+
 import Register from './components/Register';
 
 const AppRoutes = [
@@ -11,14 +11,14 @@ const AppRoutes = [
         index: true,
         element: <Home />
     },
-    {
-        path: '/public',
-        element: <Public />
-    },
-    {
-        path: '/private',
-        element: <Private />
-    },
+    // {
+    //     path: '/public',
+    //     element: <Public />
+    // },
+    // {
+    //     path: '/private',
+    //     element: <Private />
+    // },
     {
         path: '/login',
         element: <Login />
@@ -30,6 +30,10 @@ const AppRoutes = [
     {
         path: '/link',
         element: <TinyUrl />
+    },
+    {
+        path: '/tinyUrlTarget',
+        element: <TinyUrlTarget />
     },
 ];
 

@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import React from 'react';
-
+//import {orange,teal} from '@mui/material/colors';
 
 export default function Home() {
     return (
@@ -20,7 +20,7 @@ export default function Home() {
           variant="h2"
           align="center"
           color="text.primary"
-          // bgcolor={"aqua"}
+          //bgcolor={"yellow"}
           gutterBottom
         >
           Tiny Url App-

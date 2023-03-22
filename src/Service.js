@@ -6,7 +6,9 @@ console.log('process.env.API_URL', process.env.REACT_APP_API_URL)
 setAuthorizationBearer();
 
 function saveAccessToken(authResult) {
-  localStorage.setItem("access_token", authResult.token);
+  console.log('authResult',authResult)
+  localStorage.setItem("access_token", authResult.accessToken);
+  console.log(localStorage)
   setAuthorizationBearer();
 }
 
@@ -43,13 +45,15 @@ export default {
   },
 
   register: async (name,email, password) => {
-    const res = await axios.post("http://localhost:6001/login", { name, email, password });
+    console.log("==========",name)
+    const res = await axios.post("http://localhost:6001/login", {name, email, password });//addUser+register(create jwt)
+    
     saveAccessToken(res.data);
   },
 
   login: async (name, password) => {
-    const res = await axios.post("http://localhost:6001", {name, password });
-    // const res = await axios.post("https://tinyurl-b8yl.onrender.com/login", {name, email, password });
+    const res = await axios.post("http://localhost:6001", {name, password });//check jwt 
+    console.log(res.data)
     saveAccessToken(res.data);
   },
 
@@ -65,6 +69,7 @@ export default {
   postUrl: async (originalUrl, uniqueName) => {
     console.log('1',originalUrl)
     console.log('2',uniqueName)
+
     const res = await axios.post("http://localhost:6001",{ "originalUrl":originalUrl , "uniqueName":uniqueName });
     return res.data;
   }

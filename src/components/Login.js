@@ -13,18 +13,20 @@ import { useNavigate } from "react-router-dom";
 import Service from "../Service";
 import { useState } from "react";
 import Container from "@mui/material/Container";
+import {orange,teal} from '@mui/material/colors';
 
+const color = orange[300]
 export default function Login() {
   
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("123456");
-  const [userName,setUserName] = useState("michal");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     await Service.login(userName, password);
-    //navigate("/private", { replace: true });
+    navigate("/link", { replace: true });
   };
 
   return (
@@ -37,22 +39,24 @@ export default function Login() {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 1, bgcolor:  color}}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          LogIn
+          התחברות
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        
         <TextField
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="User name"
-            name="userName"
-            autoComplete="userName"
-            autoFocus
+            id="name"
+            label="שם משמתמש"
+            name="name"
+            autoComplete="name"
+            
+            //helperText={"שם משתמש ברירת מחדל: email@gmail.com"}
             onChange={(event) => setUserName(event.target.value)}
           />
           <TextField
@@ -60,29 +64,30 @@ export default function Login() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="סיסמה"
             type="password"
             id="password"
             autoComplete="current-password"
-            // helperText={"סיסמה ברירת מחדל: 123456"}
+           // helperText={"סיסמה ברירת מחדל: 123456"}
             onChange={(event) => setPassword(event.target.value)}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label="זכור אותי"
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            
+            sx={{ mt: 3, mb: 2, bgcolor: teal[300] }}
           >
-            login
+            התחברות
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="/register" variant="body2">
-              {"Don't have an account yet? To register"}
+              <Link href="/register" variant="body2" color={teal[300]}>
+                {"אין לך עדין חשבון? להרשמה"}
               </Link>
             </Grid>
           </Grid>

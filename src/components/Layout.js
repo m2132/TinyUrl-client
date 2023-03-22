@@ -4,7 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-
+//import {teal} from '@mui/material/colors';
 function Copyright() {
     return (
       <Typography variant="body2" color="text.secondary" align="center">

@@ -17,11 +17,16 @@ import { useEffect, useState } from "react";
 import Service from "../Service";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router'
+import {teal} from '@mui/material/colors';
+import img from "../vector.png"
+//import { width } from "@mui/system";
+const color = teal[300]  ;
+
 
 const pages = [
   // { title: "ציבורי", route: "/public" },
   // { title: "פרטי", route: "/private" },
-  { title: "ADD URL", route: "/link" },
+ { title: "add URL", route: "/link" },
 ];
 
 function AppHeader() {
@@ -45,10 +50,18 @@ function AppHeader() {
   }, [location.key]);
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ bgcolor: color}}  >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <TextFieldsIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+        
+        <Box
+            component="img"
+            sx={{
+            height: 64,
+            }}
+            alt="Your logo."
+            src={img}
+        />
           <Typography
             variant="h6"
             noWrap
@@ -150,7 +163,7 @@ function AppHeader() {
             <div>
             <Button color="inherit" onClick={()=>{
                 navigate('/login')
-              }}>LogIn</Button>
+              }}>התחברות</Button>
             </div>
           )}
         </Toolbar>

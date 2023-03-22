@@ -2,69 +2,98 @@ import * as React from 'react';
 import { useState } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Service from "../Service";
+import Service from "../Service"
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
+import Link from "@mui/material/Link";
+
+//import SendIcon from '@mui/icons-material/Send';
 import Container from "@mui/material/Container";
-import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import SpeedDialAction from '@mui/material/SpeedDialAction';
+import {orange,teal} from '@mui/material/colors';
+import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
+import AutorenewIcon from '@mui/icons-material/Autorenew';
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
-import PrintIcon from '@mui/icons-material/Print';
-import ShareIcon from '@mui/icons-material/Share';
-import { async } from 'q';
 
 export default function TinyUrl() {
 
   const [url, setUrl] = useState();
   const [uniqeName, setUniqeName] = useState();
-  const [newUrl,setNewUrl] = useState("");
+  const [newUrl,setNewUrl] = useState("");;
 
-  const  post=async()=>{
-    setNewUrl(await Service.postUrl(url,uniqeName))
+    const post = async()=>{      
+
+      setNewUrl(await Service.postUrl(url,uniqeName))
+      console.log('newUrl',newUrl)
+      
+     
   }
-   
+  
   return (
-    <Container>
+    <Container maxWidth="xs">
     <Box
       sx={{
-        // display: 'flex',
+        marginTop: 8,
+        flexDirection: "column",
         alignItems: 'center',
-        '& > :not(style)': { m: 1 },
+       // '& > :not(style)': { m: 1 },
         width: 500,
-        maxWidth: "100%",
+        maxWidth: '100%',
       }}
     >
-    <br/>
+    <Avatar sx={{m: 1, ml:22, bgcolor: orange[300] }}>
+        <AutorenewIcon/>
+      </Avatar>
+    <Typography sx={{ ml:20.5  }} component="h1" variant="h5">
+          TinyUrl
+        </Typography>
     <TextField 
+        fullWidth
         label="Your Url" 
         id="margin-normal" 
         margin="normal" 
-        helperText="Please enter your url"
+        helperText="Please enter your unique name "
         onChange={(event) => setUrl(event.target.value)}
-    />
-    {/* <br/> */}
-
+      />
+    
     <TextField 
+        fullWidth
         label="Name" 
         id="margin-normal" 
         margin="normal" 
-        helperText="Please enter your unique name "
+        helperText="Please enter your url "
         onChange={(event) => setUniqeName(event.target.value)}
     />
-   
-<br/>
-
-      <Button variant="contained" endIcon={<SendIcon />}  onClick={post}>
-        Send
-      </Button>    
     <br/>
+      <Button variant="contained" 
+       onClick={post}
+       sx={{ mt: 3,ml:17, mb: 2,pl:5 ,pr:5 ,bgcolor: teal[300] }}
+       >
+        Send
+      </Button> 
+      <br/>
+       <TextField 
+        fullWidth 
+        disabled
+        label="Your Tiny Url" 
+        id="margin-normal" 
+        margin="normal"       
+        value={newUrl} 
+       
+    />  
+    add target-> 
+    <Link href="/tinyUrlTarget" variant="body2" color={teal[300]}>
+   <ControlPointIcon/>
+              </Link>
 
-      <TextField disabled fullWidth label="your tiny url" id="fullWidth" value={newUrl} />
+     
     </Box>
+
+    
     </Container>
     
   );
 }
+
+
 
