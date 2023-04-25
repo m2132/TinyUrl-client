@@ -153,17 +153,17 @@ function AppHeader() {
 
           {loginUser ? (
             <div>
-              {loginUser.name} מחובר | 
+              {loginUser.name} Connected | 
               <Button color="inherit" onClick={()=>{
                 Service.logout();
                 navigate('/')
-              }}>התנתקות</Button>
+              }}>Disconnection</Button>
             </div>
           ) : (
             <div>
             <Button color="inherit" onClick={()=>{
                 navigate('/login')
-              }}>התחברות</Button>
+              }}>Login</Button>
             </div>
           )}
         </Toolbar>

@@ -14,6 +14,7 @@ import Service from "../Service";
 import { useState } from "react";
 import Container from "@mui/material/Container";
 import {orange,teal} from '@mui/material/colors';
+// import Register from './Register';
 
 export default function Register() {
 
@@ -43,7 +44,7 @@ export default function Register() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          הרשמה
+          Register
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
         <TextField
@@ -81,7 +82,7 @@ export default function Register() {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="זכור אותי"
+            label="Remember me"
           />
           <Button
             type="submit"
@@ -89,13 +90,13 @@ export default function Register() {
             variant="contained"
             sx={{ mt: 3, mb: 2 , bgcolor:teal[300]}}
           >
-            הרשמה
+            Register
           </Button>
           <Grid container>
             <Grid item>
               <Link href="/login" variant="body2">
-                {"יש לך כבר חשבון? להתחברות"}
-              </Link>
+              {"Do you already have an account? Sign in"}      
+                      </Link>
             </Grid>
           </Grid>
         </Box>

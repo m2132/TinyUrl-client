@@ -5,7 +5,9 @@ import TextField from '@mui/material/TextField';
 import Service from "../Service"
 import Button from '@mui/material/Button';
 import Link from "@mui/material/Link";
-
+// import {  IconButton } from "@material-ui/core";
+// import { FileCopyOutlined } from "@material-ui/icons";
+import copy from "copy-to-clipboard";
 //import SendIcon from '@mui/icons-material/Send';
 import Container from "@mui/material/Container";
 import {orange,teal} from '@mui/material/colors';
@@ -14,6 +16,7 @@ import Typography from "@mui/material/Typography";
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 
 export default function TinyUrl() {
 
@@ -28,6 +31,9 @@ export default function TinyUrl() {
       
      
   }
+  const handleCopyClick = () => {
+    copy(newUrl); // עותק את הטקסט הנוכחי ללוח הגזירים
+  };
   
   return (
     <Container maxWidth="xs">
@@ -72,16 +78,33 @@ export default function TinyUrl() {
         Send
       </Button> 
       <br/>
-       <TextField 
+       {/* <TextField 
         fullWidth 
         disabled
         label="Your Tiny Url" 
         id="margin-normal" 
         margin="normal"       
         value={newUrl} 
-       
-    />  
-    add target-> 
+        
+    />   */}
+      {/* <ContentPasteIcon onClick={handleCopyClick}/> */}
+
+     <TextField
+
+
+        fullWidth
+        disabled
+        label="Your Tiny Url"
+        id="margin-normal"
+        margin="normal"
+        value={newUrl}
+        onChange={(e) => setNewUrl(e.target.value)}
+      />
+
+        {/* <FileCopyOutlined />
+      </IconButton> */}
+      {/* <ContentPasteIcon/> */}
+    add target-
     <Link href="/tinyUrlTarget" variant="body2" color={teal[300]}>
    <ControlPointIcon/>
               </Link>

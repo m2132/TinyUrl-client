@@ -49,7 +49,7 @@ export default {
 
   register: async (name,email, password) => {
     console.log("==========",name)
-    // const res = await axios.post("https://tinyurl.com/m6352/login", {name, email, password });//addUser+register(create jwt)
+    // const res = await axios.post("https://tinyurl.com/m6352/register", {name, email, password });//addUser+register(create jwt)
     const res = await axios.post("http://localhost:6001/register", {name, email, password });//addUser+register(create jwt)
     
     saveAccessToken(res.data);

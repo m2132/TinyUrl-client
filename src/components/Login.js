@@ -43,7 +43,7 @@ export default function Login() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          התחברות
+          Login
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
         
@@ -52,11 +52,10 @@ export default function Login() {
             required
             fullWidth
             id="name"
-            label="שם משמתמש"
+            label="User name"
             name="name"
             autoComplete="name"
             
-            //helperText={"שם משתמש ברירת מחדל: email@gmail.com"}
             onChange={(event) => setUserName(event.target.value)}
           />
           <TextField
@@ -64,7 +63,7 @@ export default function Login() {
             required
             fullWidth
             name="password"
-            label="סיסמה"
+            label="Password"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -73,7 +72,7 @@ export default function Login() {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="זכור אותי"
+            label="Remember me"
           />
           <Button
             type="submit"
@@ -82,13 +81,12 @@ export default function Login() {
             
             sx={{ mt: 3, mb: 2, bgcolor: teal[300] }}
           >
-            התחברות
+            Login
           </Button>
           <Grid container>
             <Grid item>
               <Link href="/register" variant="body2" color={teal[300]}>
-                {"אין לך עדין חשבון? להרשמה"}
-              </Link>
+              {"Don't have an account yet? To register"}              </Link>
             </Grid>
           </Grid>
         </Box>
